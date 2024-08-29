@@ -37,6 +37,8 @@ Write an email to my bank asking them to raise my credit limit from $1,000 to $1
         >
         <label for="context">Context</label>
         <input id="context" value="I'm a long-standing customer." />
+        <!-- Remove this DIV once options are supported. -->
+        <div style="display: none;">
         <label
           >Tone:
           <select class="tone">
@@ -60,39 +62,45 @@ Write an email to my bank asking them to raise my credit limit from $1,000 to $1
             <option value="long">Long</option>
           </select>
         </label>
+        </div>
         <button class="write-button" type="submit">📝 Write</button>
       </div>
     </form>
     <output hidden></output>
     <button hidden class="copy-button">📋 Copy</button>
     <form hidden class="rewrite-form">
-      <div class="wrapper">
-        <label
-          >Rewrite tone:
-          <select class="rewrite-tone">
-            <option selected value="as-is">As is</option>
-            <option value="more-formal">More formal</option>
-            <option value="more-casual">More casual</option>
-          </select></label
-        >
-        <label
-          >Rewrite format:
-          <select class="rewrite-format">
-            <option selected value="as-is">As is</option>
-            <option value="plain-text">Plain text</option>
-            <option value="markdown">Markdown</option>
-          </select></label
-        >
-        <label
-          >Rewrite length:
-          <select class="rewrite-length">
-            <option selected value="as-is">As is</option>
-            <option value="shorter">Shorter</option>
-            <option value="longer">Longer</option>
-          </select>
-        </label>
-        <button class="rewrite-button" type="submit">♻️ Rewrite</button>
-      </div>
+      <fieldset>
+        <legend>Rewrite:</legend>
+        <label><input checked type="radio" name="what" value="tone"> Tone</label>
+        <label><input type="radio" name="what" value="length"> Length</label>
+        <div class="wrapper">
+          <label hidden
+            >Rewrite tone:
+            <select class="rewrite-tone">
+              <option selected value="as-is">As is</option>
+              <option value="more-formal">More formal</option>
+              <option value="more-casual">More casual</option>
+            </select></label
+          >
+          <label hidden
+            >Rewrite format:
+            <select class="rewrite-format">
+              <option selected value="as-is">As is</option>
+              <option value="plain-text">Plain text</option>
+              <option value="markdown">Markdown</option>
+            </select></label
+          >
+          <label hidden
+            >Rewrite length:
+            <select class="rewrite-length">
+              <option selected value="as-is">As is</option>
+              <option value="shorter">Shorter</option>
+              <option value="longer">Longer</option>
+            </select>
+          </label>
+          <button class="rewrite-button" type="submit">♻️ Rewrite</button>
+        </div>
+      </fieldset>
     </form>
     <footer>
       Made by <a href="https://github.com/tomayac/">@tomayac</a>.

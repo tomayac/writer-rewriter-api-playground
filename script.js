@@ -139,4 +139,18 @@ import { marked } from 'https://cdn.jsdelivr.net/npm/marked@13.0.3/lib/marked.es
   copyButton.addEventListener('click', async () => {
     await navigator.clipboard.writeText(output.innerText);
   });
+
+  // Remove once multiple rewrite options are supported.
+  const whatTone = document.querySelector('[name=what][value=tone]');
+  const whatLength = document.querySelector('[name=what][value=length]');
+
+  [whatTone, whatLength].forEach((what) => {
+    what.addEventListener('change', () => {
+      rewriteToneSelect.labels[0].hidden = !whatTone.checked;
+      rewriteLengthSelect.labels[0].hidden = !whatLength.checked;
+      rewriteFormatSelect.labels[0].hidden = true;
+    });
+  });
+  rewriteToneSelect.labels[0].hidden = !whatTone.checked;
+  rewriteLengthSelect.labels[0].hidden = !whatLength.checked;
 })();
